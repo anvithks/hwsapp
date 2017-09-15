@@ -1,0 +1,244 @@
+[
+  {
+    "category":"Home",
+    "component": "TabsPage",
+    "subs": []
+  },
+  {
+    "category":"Welcome",
+    "component": "WelcomePage",
+    "subs": []
+  },
+  {
+    "category":"Settings",
+    "component": "SettingsPage",
+    "subs": []
+  },
+  {
+    "category":"Search",
+    "component": "SearchPage",
+    "subs": []
+  },
+  {
+    "category":"Computing",
+    "subs": [
+      {
+        "subcategory":"ECS",
+        "component": "SearchPage",
+        "services": []
+      },
+      {
+        "subcategory":"Auto Scale",
+        "component": "SearchPage",
+        "services": []
+      },
+      {
+        "subcategory":"Cloud Container Engine",
+        "component": "SearchPage",
+        "services": []
+      }
+    ]
+  },
+  {
+    "category":"Storage",
+    "subs": [
+      {
+        "subcategory":"Elastic Volume Service",
+        "component": "SearchPage",
+        "services": []
+      },
+      {
+        "subcategory":"Data Express Service",
+        "component": "SearchPage",
+        "services": []
+      },
+      {
+        "subcategory":"Scalable File Service",
+        "component": "SearchPage",
+        "services": []
+      }
+    ]
+  },
+  {
+    "category":"Network",
+    "subs": [
+      {
+        "subcategory":"VPC",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Brother",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Samsung",
+            "component": ""
+          }
+        ]
+      },
+      {
+        "subcategory":"ELB",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Epson",
+            "component": ""
+          }
+        ]
+      },
+      {
+        "subcategory":"VPN",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Epson",
+            "component": ""
+          }
+        ]
+      },
+      {
+        "subcategory":"DNS",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Epson",
+            "component": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category":"Security",
+    "subs": [
+      {
+        "subcategory":"Anti DDoS",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Brother",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Samsung",
+            "component": ""
+          }
+        ]
+      },
+      {
+        "subcategory":"Security Index Service",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Epson",
+            "component": ""
+          }
+        ]
+      },
+      {
+        "subcategory":"Key Management Service",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Epson",
+            "component": ""
+          }
+        ]
+      },
+      {
+        "subcategory":"Database Security Service",
+        "component": "SearchPage",
+        "services": [
+          {
+            "title":"HP",
+            "component": ""
+          },
+          {
+            "title":"Canon",
+            "component": ""
+          },
+          {
+            "title":"Epson",
+            "component": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category":"Management & Deployment",
+    "subs": []
+  },
+  {
+    "category":"Application",
+    "subs": []
+  },
+  {
+    "category":"Database",
+    "subs": []
+  },
+  {
+    "category":"Enterprise Application",
+    "subs": []
+  },
+  {
+    "category":"Data Analysis",
+    "subs": []
+  }
+]

@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'HWSCLOUD_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <button (click)="launch('https://auth.hwclouds.com')" ion-button>Launch HWS</button>
+  <button (click)="launch('http://standupcentral.in')" ion-button color="secondary">Launch StandupCentral</button>
+  <button (click)="launch('http://www.ndtv.com/')" ion-button color="dark">Launch News</button>
+  <button (click)="launch('https://console.cloud.google.com')" ion-button color="danger">Launch GCP Console</button>
+</ion-content>

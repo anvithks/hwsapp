@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>{{ 'CARDS_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of cardItems">
+    <ion-item>
+      <ion-avatar item-start>
+        <!-- <img [src]="item.card.avatar"> -->
+        <ion-icon name="{{item.card.icon}}"></ion-icon>
+      </ion-avatar>
+      <h2>{{item.card.name}}</h2>
+      <p>{{item.date}}</p>
+    </ion-item>
+    <!-- <img [src]="item.image"> -->
+    <div id="{{item.chartId}}"></div>
+    <ion-card-content>
+      <p>{{item.content}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab color="light" (click)="newCard()"><ion-icon name="add"></ion-icon></button>
+    <!-- <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list> -->
+  </ion-fab>
+</ion-content>

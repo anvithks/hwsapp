@@ -8,28 +8,79 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of cardItems">
-    <ion-item>
-      <ion-avatar item-start>
-        <!-- <img [src]="item.card.avatar"> -->
-        <ion-icon name="{{item.card.icon}}"></ion-icon>
+  <ion-refresher (ionRefresh)="doRefresh($event);">
+    <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="..fetching cards">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar float-start padding-right>
+        <ion-icon name="globe"></ion-icon>
       </ion-avatar>
-      <h2>{{item.card.name}}</h2>
-      <p>{{item.date}}</p>
-    </ion-item>
-    <!-- <img [src]="item.image"> -->
+      <ion-buttons>
+        <span text-start padding-vertical>HWS Status</span>
+        <button ion-button icon-only clear float-right (click)="removeCard()">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+      <p text-start>Overall status</p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="checkmark-circle" item-start color="secondary"></ion-icon>
+            All services report normal status
+        </ion-item>
+        <ion-item>
+          <ion-icon name="alert" item-start color="danger"></ion-icon>
+          EVS service is currently down.
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar float-start padding-right>
+        <ion-icon name="logo-yen"></ion-icon>
+      </ion-avatar>
+      <ion-buttons>
+        <span text-start padding-vertical>Billing</span>
+        <button ion-button icon-only clear float-right (click)="removeCard()">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+      <p text-start>Approx. charges so far for this month:</p>
+    </ion-card-header>
+    <ion-card-content>
+      <p>&yen;399.56</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let item of cardItems">
+    <ion-card-header>
+      <ion-avatar float-start padding-right>
+        <ion-icon name="{{item.cardIcon}}"></ion-icon>
+      </ion-avatar>
+      <ion-buttons>
+        <span text-start padding-vertical>{{item.cardName}}</span>
+        <button ion-button icon-only clear float-right (click)="removeCard()">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+      <p text-start>{{item.date}}</p>
+    </ion-card-header>
     <div id="{{item.chartId}}"></div>
     <ion-card-content>
       <p>{{item.content}}</p>
     </ion-card-content>
   </ion-card>
   <ion-fab right bottom>
-    <button ion-fab color="light" (click)="newCard()"><ion-icon name="add"></ion-icon></button>
-    <!-- <ion-fab-list side="top">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list> -->
+    <button ion-fab color="light" (click)="newCardModal()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

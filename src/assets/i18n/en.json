@@ -71,5 +71,13 @@
 
   "HWSCLOUD_TITLE": "HWS Cloud",
 
-  "MENU_TITLE": "Welcome User"
+  "MENU_TITLE": "Welcome User",
+
+  "NEW_MONITOR_CARD": "New Monitoring Card",
+  "NEW_CARD_LABEL" : "Monitoring Card Name",
+  "NEW_MONITOR_METRIC" : "Monitoring Metric",
+  "NEW_METRIC_SOURCE" : "Metric Source",
+  "ADD_SOURCE_BUTTON_LABEL" : "Add from one or more CCE sources",
+  "ADD_NEW_CARD_BUTTON_LABEL" : "Add Card",
+  "ADD_CARD_SUCCESS": "Monitoring card added successfully!"
 }

@@ -1,0 +1,51 @@
+<!--
+  Generated template for the AddCardModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'NEW_MONITOR_CARD' | translate}}</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()" color="primary">
+            <ion-icon item-right name="close"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-item no-padding>
+			<ion-label stacked>{{'NEW_CARD_LABEL' | translate}}</ion-label>
+			<ion-input type="text" placeholder="Name this monitoring card" [(ngModel)]="monitoringMetric"></ion-input>
+		</ion-item>
+		<ion-item no-padding>
+			<ion-label stacked>{{'NEW_MONITOR_METRIC' | translate}}</ion-label>
+			<ion-select [(ngModel)]="monitoringMetric" interface="popover">
+				<ion-option value="Total CCE Instances">CCE, Total Instances</ion-option>
+				<ion-option value="CPU Utilization">CCE, CPU Utilization (%)</ion-option>
+				<ion-option value="Network Utilization">CCE, Network Utilization (Bytes/sec)</ion-option>
+				<ion-option value="Disk Traffic">CCE, Disk Traffic (Bytes/sec)</ion-option>
+				<ion-option value="Total ECS Instances">ECS, Total Instances</ion-option>
+				<ion-option value="Daily API Requests">API, Daily Requests</ion-option>
+				<ion-option value="Storage Used - EVS">EVS, Storage Used</ion-option>
+				<ion-option value="Write Operations - EVS">EVS, Write Operations</ion-option>
+				<ion-option value="Active Connections - EVS">EVS, Active Connections</ion-option>
+			</ion-select>
+		</ion-item>
+		<ion-item no-padding>
+			<ion-label stacked>{{'NEW_METRIC_SOURCE' | translate}}</ion-label>
+		</ion-item>
+		<button block ion-button icon-right clear color="default">
+			{{'ADD_SOURCE_BUTTON_LABEL' | translate}}
+			<ion-icon name="add-circle"></ion-icon>
+		</button>
+	</ion-list>
+<button ion-button block (click)="addCard()">
+	{{'ADD_NEW_CARD_BUTTON_LABEL' | translate}}
+</button>
+</ion-content>

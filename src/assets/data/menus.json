@@ -15,11 +15,6 @@
     "subs": []
   },
   {
-    "category":"Search",
-    "component": "SearchPage",
-    "subs": []
-  },
-  {
     "category":"Computing",
     "subs": [
       {

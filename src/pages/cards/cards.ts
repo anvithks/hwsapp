@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, LoadingController } from 'ionic-angular';
 import * as HighCharts from 'highcharts';
-/*import { ModalPage } from './modal-page';*/
+import { TranslateService } from '@ngx-translate/core';
+import { AddCardModalPage } from '../add-card-modal/add-card-modal';
+import { CardsProvider } from '../../providers/providers';
+
 @IonicPage()
 @Component({
   selector: 'page-cards',
@@ -9,60 +12,34 @@ import * as HighCharts from 'highcharts';
 })
 export class CardsPage {
   cardItems: any[];
+  myCpuChart: any;
+  myNwChart: any;
+  myDiskChart: any;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-    this.cardItems = [
-      {
-        card: {
-          icon: 'settings',
-          name: 'CPU of VM lamp-1-vm'
-        },
-        chartId:'cpuContainer',
-        date: 'CPU Utilisation',
-        content: '',
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController, 
+    public translateService: TranslateService, 
+    public cards: CardsProvider,
+    public loadingCtrl: LoadingController) {
+    this.cards.getCards()
+    .subscribe(
+      (response)=> {
+        this.cardItems = response;
+        console.log(this.cardItems);
       },
-      {
-        card: {
-          icon: 'wifi',
-          name: 'Network of VM lamp-1-vm'
-        },
-        chartId:'nwContainer',
-        date: 'Network Utilisation',
-        content: '',
-      },
-      {
-        card: {
-          icon: 'logo-usd',
-          name: 'Billing'
-        },
-        date: 'Approximate charges so far for this month:',
-        content: '$399'
-      }
-    ];
-
-  }
-  newCard(){
-      this.cardItems.push( {
-        card: {
-          icon: 'wifi',
-          name: 'Network'
-        },
-        chartId:'nwContainer',
-        date: 'Network Utilisation',
-        content: '',
+      (error)=>{
+        console.log(error);
       });
-      this.refreshPage();
+    this.doRefresh(0);
   }
-  refreshPage() {
-    this.navCtrl.setRoot(this.navCtrl.getActive().component);
-  }
-  ionViewDidLoad(){
-    var myChart = HighCharts.chart('cpuContainer', {
+  //Draw CPU chart
+  drawCpu(){
+    this.myCpuChart = HighCharts.chart('cpuContainer', {
       chart: {
         type: 'line'
       },
         title: {
-        text: 'CPU Utilisation'
+          text: 'CPU Utilisation'
       },
       xAxis: {
         categories: ['8am', '10am', '12pm', '2pm','4pm','6pm']
@@ -87,7 +64,11 @@ export class CardsPage {
         }
       ]
     });
-    var myNwChart = HighCharts.chart('nwContainer', {
+  }
+
+  //Draw NW chart
+  drawNw(){
+    this.myNwChart = HighCharts.chart('nwContainer', {
       chart: {
         type: 'line'
       },
@@ -128,5 +109,56 @@ export class CardsPage {
         }
       ]
     });
+  }
+
+  //Draw Disk usage chart
+  drawDisk(){
+    this.myDiskChart = HighCharts.chart('diskContainer', {
+      chart: {
+        type: 'line'
+      },
+        title: {
+        text: 'Disk Utilisation'
+      },
+      xAxis: {
+        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm']
+      },
+      yAxis: {
+        title: {
+          text: 'mCores'
+        }
+      },
+      series: [
+        {
+          name: 'VM1',
+          data: (
+            function () {
+              var data = []; 
+              for (let i = 0; i <= 5; i += 1) { 
+                data.push({ x: i, y: Math.floor(Math.random() * 10) + 0 }); 
+              } 
+              return data; 
+            }()
+          ) 
+        }
+      ]
+    });
+  }
+  newCardModal(){
+    let myModal = this.modalCtrl.create(AddCardModalPage);
+    myModal.present();
+  }
+  removeCard(){
+
+  }
+  doRefresh(refresher){
+    /*this.storage.get('myStore').then((data) => {
+      this.items = data;}); */
+    if(refresher != 0)
+         refresher.complete();
+  };
+  ionViewDidEnter(){
+    this.drawCpu();
+    this.drawNw();
   }
 }

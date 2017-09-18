@@ -17,6 +17,9 @@ import { Api } from '../providers/providers';
 import { HWSApp } from './app.component';
 import { MenuProvider } from '../providers/menu/menu';
 
+import { AddCardModalPage } from '../pages/add-card-modal/add-card-modal';
+import { CardsProvider } from '../providers/cards/cards';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function HttpLoaderFactory(http: Http) {
@@ -40,7 +43,8 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    HWSApp
+    HWSApp,
+    AddCardModalPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    HWSApp
+    HWSApp,
+    AddCardModalPage
   ],
   providers: [
     Api,
@@ -70,7 +75,8 @@ export function provideSettings(storage: Storage) {
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    MenuProvider
+    MenuProvider,
+    CardsProvider
   ]
 })
 export class AppModule { }

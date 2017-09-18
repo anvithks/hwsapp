@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.starter" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>HWSApp</name>
     <description>Mobile solution to check on your cloud services and billing.</description>
     <author email="anvith.k.s@huawei.com" href="http://huawei.com/">PaaS India @ Huawei </author>
@@ -24,12 +24,12 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/icon/hws-launcher-ldpi-icon.png" />
-        <icon density="mdpi" src="resources/android/icon/hws-launcher-mdpi-icon.png" />
-        <icon density="hdpi" src="resources/android/icon/hws-launcher-hdpi-icon.png" />
-        <icon density="xhdpi" src="resources/android/icon/hws-launcher-xhdpi-icon.png" />
-        <icon density="xxhdpi" src="resources/android/icon/hws-launcher-xxhdpi-icon.png" />
-        <icon density="xxxhdpi" src="resources/android/icon/hws-launcher-xxxhdpi-icon.png" />
+        <icon density="ldpi" src="resources/android/icon/hws-icon-ldpi-icon.png" />
+        <icon density="mdpi" src="resources/android/icon/hws-icon-mdpi-icon.png" />
+        <icon density="hdpi" src="resources/android/icon/hws-icon-hdpi-icon.png" />
+        <icon density="xhdpi" src="resources/android/icon/hws-icon-xhdpi-icon.png" />
+        <icon density="xxhdpi" src="resources/android/icon/hws-icon-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/hws-icon-xxxhdpi-icon.png" />
         <splash density="land-ldpi" src="resources/android/splash/hwsapp-land-ldpi-screen.png" />
         <splash density="land-mdpi" src="resources/android/splash/hwsapp-land-mdpi-screen.png" />
         <splash density="land-hdpi" src="resources/android/splash/hwsapp-land-hdpi-screen.png" />
@@ -81,6 +81,7 @@
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />

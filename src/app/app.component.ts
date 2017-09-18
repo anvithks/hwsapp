@@ -8,6 +8,7 @@ import { InAppBrowser } from 'ionic-native';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { MenuProvider } from '../providers/menu/menu';
+import { CardsProvider } from '../providers/cards/cards';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,7 +37,7 @@ export class HWSApp {
   showLevel1 = null;
   showLevel2 = null;
 
-  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, public menu: MenuProvider) {
+  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, public menu: MenuProvider, public cards: CardsProvider) {
     this.initTranslate();
     this.menu.getMenus()
     .subscribe((response)=> {

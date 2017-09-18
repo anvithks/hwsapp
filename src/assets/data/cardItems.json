@@ -1,0 +1,16 @@
+[
+  {
+    "cardIcon": "settings",
+    "cardName": "CPU of VM lamp-1-vm",
+    "chartId":"cpuContainer",
+    "date": "CPU Utilisation",
+    "content": ""
+  },
+  {
+    "cardIcon": "wifi",
+    "cardName": "Network of VM lamp-1-vm",
+    "chartId":"nwContainer",
+    "date": "Network Utilisation",
+    "content": ""
+  }
+]

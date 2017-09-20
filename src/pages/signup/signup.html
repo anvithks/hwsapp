@@ -8,7 +8,7 @@
 
 
 <ion-content>
-  <form (submit)="doSignup()">
+  <form>
     <ion-list>
 
       <ion-item>
@@ -36,9 +36,14 @@
       </ion-item>
 
       <div padding>
-        <button ion-button color="danger" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
+        
       </div>
 
     </ion-list>
   </form>
 </ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <button ion-button color="danger" block (click)="doSignup()">{{ 'SIGNUP_BUTTON' | translate }}</button>
+  </ion-toolbar>
+</ion-footer>

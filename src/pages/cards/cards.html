@@ -17,14 +17,14 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card>
+  <ion-card *ngIf="showStatusCard">
     <ion-card-header>
       <ion-avatar float-start padding-right>
         <ion-icon name="globe"></ion-icon>
       </ion-avatar>
       <ion-buttons>
         <span text-start padding-vertical>HWS Status</span>
-        <button ion-button icon-only clear float-right (click)="removeCard()">
+        <button ion-button icon-only clear float-right (click)="presentPopover('status')">
           <ion-icon name="more"></ion-icon>
         </button>
       </ion-buttons>
@@ -37,6 +37,10 @@
             All services report normal status
         </ion-item>
         <ion-item>
+          <ion-icon name="warning" item-start color="abnormal"></ion-icon>
+          VPC service is abnormal.
+        </ion-item>
+        <ion-item>
           <ion-icon name="alert" item-start color="danger"></ion-icon>
           EVS service is currently down.
         </ion-item>
@@ -44,32 +48,32 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="showBillingCard">
     <ion-card-header>
       <ion-avatar float-start padding-right>
         <ion-icon name="logo-yen"></ion-icon>
       </ion-avatar>
       <ion-buttons>
         <span text-start padding-vertical>Billing</span>
-        <button ion-button icon-only clear float-right (click)="removeCard()">
+        <button ion-button icon-only clear float-right (click)="presentPopover('billing')">
           <ion-icon name="more"></ion-icon>
         </button>
       </ion-buttons>
       <p text-start>Approx. charges so far for this month:</p>
     </ion-card-header>
     <ion-card-content>
-      <p>&yen;399.56</p>
+      <p padding style="font-size: 1.4em;font-weight: 600;">&yen;399.56</p>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngFor="let item of cardItems">
+  <ion-card *ngFor="let item of cardItems; let i = index;">
     <ion-card-header>
       <ion-avatar float-start padding-right>
         <ion-icon name="{{item.cardIcon}}"></ion-icon>
       </ion-avatar>
       <ion-buttons>
         <span text-start padding-vertical>{{item.cardName}}</span>
-        <button ion-button icon-only clear float-right (click)="removeCard()">
+        <button ion-button icon-only clear float-right (click)="presentPopover(i)">
           <ion-icon name="more"></ion-icon>
         </button>
       </ion-buttons>
@@ -80,7 +84,17 @@
       <p>{{item.content}}</p>
     </ion-card-content>
   </ion-card>
-  <ion-fab right bottom>
+  <ion-fab right bottom *ngIf="!showStatusCard || !showBillingCard">
+    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top" color="danger">
+      <button ion-fab *ngIf="!showStatusCard"><ion-icon name="cloud"></ion-icon></button>
+      <button ion-fab *ngIf="!showBillingCard"><ion-icon name="logo-yen"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab right bottom *ngIf="showStatusCard && showBillingCard">
     <button ion-fab color="light" (click)="newCardModal()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+</ion-content>
+<ion-content *ngIf="(!showStatusCard && !showBillingCard) && cardItems.length < 1">
+  <p>Add your First card. You can add metric cards to your home page</p>
 </ion-content>

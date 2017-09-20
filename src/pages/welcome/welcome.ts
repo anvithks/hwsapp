@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform} from 'ionic-angular';
+import { IonicPage, NavController, Platform, MenuController} from 'ionic-angular';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -15,20 +15,30 @@ declare var cordova:any;
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
+  constructor(public navCtrl: NavController, public platform: Platform, public menu: MenuController) {
   	this.platform = platform;
   }
 
   login() {
     this.navCtrl.push('LoginPage');
   }
-  launch(url) {
+  /*launch(url) {
 	    this.platform.ready().then(() => {
 	        cordova.InAppBrowser.open(url, "_self", "location=true");
 	    });
-	}
+	}*/
 
   signup() {
     this.navCtrl.push('SignupPage');
   }
+
+  ionViewDidEnter() {
+    //to disable menu, or
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave() {
+    // to enable menu.
+    this.menu.enable(true);
+}
 }

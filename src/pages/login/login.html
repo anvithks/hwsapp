@@ -9,7 +9,7 @@
 
 <ion-content>
   <form>
-    <ion-list align-self-baseline>
+    <ion-list>
 
       <ion-item>
         <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
@@ -29,13 +29,16 @@
         <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
       </ion-item>
+
+      <div padding>
+        
+      </div>
+
     </ion-list>
   </form>
 </ion-content>
 <ion-footer no-shadow>
   <ion-toolbar position="bottom">
-    <div padding>
-        <button ion-button color="danger" block (click)="doLogin()">{{ 'LOGIN_BUTTON' | translate }}</button>
-      </div>
+    <button ion-button color="danger" block (click)="doLogin()">{{ 'LOGIN_BUTTON' | translate }}</button>
   </ion-toolbar>
 </ion-footer>

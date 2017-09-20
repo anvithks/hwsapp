@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ModalController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, LoadingController, ToastController, PopoverController, Events } from 'ionic-angular';
 import * as HighCharts from 'highcharts';
 import { TranslateService } from '@ngx-translate/core';
 import { AddCardModalPage } from '../add-card-modal/add-card-modal';
 import { CardsProvider } from '../../providers/providers';
+import { IonicStorageModule, Storage } from '@ionic/storage';
+import { PopoverComponent } from '../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -15,12 +17,29 @@ export class CardsPage {
   myCpuChart: any;
   myNwChart: any;
   myDiskChart: any;
+  
+  showCpuCard: boolean;
+  showNwCard: boolean;
+  showDiskCard: boolean;
+
+  removeCardError: any;
+  removeCardSuccess: any;
+  showStatusCard: boolean;
+  showBillingCard: boolean;
+
+  
 
   constructor(public navCtrl: NavController,
     public modalCtrl: ModalController, 
     public translateService: TranslateService, 
     public cards: CardsProvider,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,
+    public storage: Storage,
+    public popoverCtrl: PopoverController) {
+    this.showCpuCard = true;
+    this.showNwCard = true;
+    this.showDiskCard = true;
     this.cards.getCards()
     .subscribe(
       (response)=> {
@@ -30,8 +49,43 @@ export class CardsPage {
       (error)=>{
         console.log(error);
       });
+    this.showStatusCard = true;
+    this.showBillingCard = true;
+    
+    this.translateService.get('COMMON_ERROR').subscribe((value) => {
+      this.removeCardError = value;
+    })
+    this.translateService.get('REMOVE_CARD_SUCCESS').subscribe((value) => {
+      this.removeCardSuccess = value;
+    })
+    
     this.doRefresh(0);
   }
+
+  //Popover Menu
+  presentPopover(cardType: any, ev) {
+    let popover = this.popoverCtrl.create(PopoverComponent, {cardType: cardType, cardItem: this.cardItems});
+    popover.onDidDismiss((data) => {
+      if(data==='status'){
+        this.showStatusCard = false;
+      } else if(data==='billing'){
+        this.showBillingCard = false;
+      } else{
+        console.log("where to splice", data);
+          (this.cardItems).splice(data, 1);
+        console.log("After splicing",this.cardItems);
+      }
+
+      
+    });
+    popover.present({
+      ev: ev
+    });
+  }
+  //Return from Popover
+ /* popover.onDidDismiss((popoverData) => {
+      //this.selectedTitle = popoverData;
+   })*/
   //Draw CPU chart
   drawCpu(){
     this.myCpuChart = HighCharts.chart('cpuContainer', {
@@ -42,7 +96,7 @@ export class CardsPage {
           text: 'CPU Utilisation'
       },
       xAxis: {
-        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm']
+        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm', '8pm', '10pm', '12am', '2am', '4am']
       },
       yAxis: {
         title: {
@@ -55,7 +109,7 @@ export class CardsPage {
           data: (
             function () {
               var data = []; 
-              for (let i = 0; i <= 5; i += 1) { 
+              for (let i = 0; i <= 10; i += 1) { 
                 data.push({ x: i, y: Math.floor(Math.random() * 10) + 0 }); 
               } 
               return data; 
@@ -76,7 +130,7 @@ export class CardsPage {
         text: 'NW Utilisation'
       },
       xAxis: {
-        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm']
+        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm', '8pm', '10pm', '12am', '2am', '4am']
       },
       yAxis: {
         title: {
@@ -89,8 +143,8 @@ export class CardsPage {
           data: (
             function () {
               var data = []; 
-              for (let i = 0; i <= 5; i += 1) { 
-                data.push({ x: i, y: Math.floor(Math.random() * 10) + 0 }); 
+              for (let i = 0; i <= 10; i += 1) { 
+                data.push({ x: i, y: Math.floor(Math.random() * 100) + 0 }); 
               } 
               return data; 
             }()
@@ -100,8 +154,8 @@ export class CardsPage {
           data: (
             function () { 
               var data = []; 
-              for (let i = 0; i <= 5; i += 1) { 
-                data.push({ x: i, y: Math.floor(Math.random() * 10) + 0 }); 
+              for (let i = 0; i <= 10; i += 1) { 
+                data.push({ x: i, y: Math.floor(Math.random() * 100) + 0 }); 
               } 
               return data; 
             }()
@@ -121,20 +175,20 @@ export class CardsPage {
         text: 'Disk Utilisation'
       },
       xAxis: {
-        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm']
+        categories: ['8am', '10am', '12pm', '2pm','4pm','6pm', '8pm', '10pm', '12am', '2am', '4am']
       },
       yAxis: {
         title: {
-          text: 'mCores'
+          text: 'bytes'
         }
       },
       series: [
         {
-          name: 'VM1',
+          name: 'Disk1',
           data: (
             function () {
               var data = []; 
-              for (let i = 0; i <= 5; i += 1) { 
+              for (let i = 0; i <= 10; i += 1) { 
                 data.push({ x: i, y: Math.floor(Math.random() * 10) + 0 }); 
               } 
               return data; 
@@ -144,21 +198,92 @@ export class CardsPage {
       ]
     });
   }
-  newCardModal(){
-    let myModal = this.modalCtrl.create(AddCardModalPage);
+  drawCharts(){
+    this.drawCpu();
+    this.drawNw();
+    if(this.cardItems.length > 2){
+      this.drawDisk();
+    }
+  }
+  newCardModal(cardItems){
+    let myModal = this.modalCtrl.create(AddCardModalPage, {cardItems: this.cardItems});
+    myModal.onDidDismiss((data) => {
+      this.cardItems = data;
+      if(this.cardItems.length){
+        this.drawCharts();  
+      }else{
+        this.showToast("Metric card Not availble");
+      }  
+    });
     myModal.present();
   }
-  removeCard(){
-
+  showToast(message){
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
   }
+  /*removeCard(card: any){
+      switch (card) {
+        case "status":
+          this.showStatusCard = false;
+          break;
+        case "billing":
+          this.showBillingCard = false
+          break;
+        case "cpu":
+          this.showCpuCard = false;
+          break;
+        case "network":
+          this.showNwCard = false;
+          break;
+        case "disk":
+          this.showDiskCard = false;
+          break;
+        
+        
+        default:
+          let toast = this.toastCtrl.create({
+            message: this.removeCardError,
+            duration: 2000,
+            position: 'top'
+          });
+          toast.present();
+          break;
+      }
+      let toast = this.toastCtrl.create({
+        message: this.removeCardSuccess,
+        duration: 2000,
+        position: 'top'
+      });
+      toast.present();
+  }*/
+  /*loadCards(){
+    this.storage.get('cardList').then((data) => {
+      this.cardItems = JSON.parse(data);
+      console.log("From Load Cards",data);
+      
+    });
+  }*/
   doRefresh(refresher){
     /*this.storage.get('myStore').then((data) => {
       this.items = data;}); */
     if(refresher != 0)
          refresher.complete();
   };
-  ionViewDidEnter(){
-    this.drawCpu();
-    this.drawNw();
+  /*ngOnInit(){
+    this.loadCards();
+  }*/
+  ionViewDidEnter(){    
+    if(this.cardItems.length){
+      this.drawCharts();  
+    }else{
+      this.showToast("Metric card not available");
+    }    
+  }
+  ionViewWillEnter(){
+    
   }
 }

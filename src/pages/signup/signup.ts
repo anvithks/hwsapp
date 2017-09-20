@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, MenuController} from 'ionic-angular';
 
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
@@ -26,7 +26,8 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService, 
+    public menu: MenuController) {
 
     this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
@@ -50,4 +51,13 @@ export class SignupPage {
       toast.present();
     });
   }
+  ionViewDidEnter() {
+    //to disable menu, or
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave() {
+    // to enable menu.
+    this.menu.enable(true);
+}
 }

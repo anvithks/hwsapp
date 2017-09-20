@@ -1,6 +1,7 @@
 {
   "BACK_BUTTON_TEXT": "Back",
-
+  "REMOVE": "Remove",
+  "COMMON_ERROR": "Something went wrong. Try again later.",
   "NAME": "Name",
   "EMAIL": "Email",
   "USERNAME": "Username",
@@ -9,7 +10,7 @@
   "SIGNUP": "Sign up",
 
   "TAB1_TITLE": "Services",
-  "TAB2_TITLE": "Search",
+  "TAB2_TITLE": "Resources",
   "TAB3_TITLE": "Settings",
   "TAB4_TITLE": "HWS",
 
@@ -52,7 +53,7 @@
   "SIGNUP_SUCCESS": "Congratulations. Your account has been successfully created.",
   "SIGNUP_BUTTON": "Sign up",
 
-  "LIST_MASTER_TITLE": "Items",
+  "LIST_MASTER_TITLE": "Resources",
 
   "ITEM_CREATE_TITLE": "New Item",
   "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
@@ -79,5 +80,6 @@
   "NEW_METRIC_SOURCE" : "Metric Source",
   "ADD_SOURCE_BUTTON_LABEL" : "Add from one or more CCE sources",
   "ADD_NEW_CARD_BUTTON_LABEL" : "Add Card",
-  "ADD_CARD_SUCCESS": "Monitoring card added successfully!"
+  "ADD_CARD_SUCCESS": "Monitoring card added successfully!",
+  "REMOVE_CARD_SUCCESS": "Card has been removed."
 }

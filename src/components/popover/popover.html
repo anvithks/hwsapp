@@ -1,0 +1,12 @@
+<!-- Generated template for the PopoverComponent component -->
+<ion-list *ngIf="cardType !='status' && cardType !='billing'" >
+   <!-- <ion-list-header color="primary">Options</ion-list-header> -->
+   <button ion-item (tap)="share(chart)">Share chart</button>
+   <button ion-item (tap)="edit(card)">Edit</button>
+   <button ion-item (tap)="removeCard(card)">Remove</button>
+   <button ion-item (tap)="viewLogs(card)">View Logs</button>
+</ion-list>
+<ion-list *ngIf="cardType =='status' || cardType =='billing'" >
+   <!-- <ion-list-header color="primary">Options</ion-list-header> -->
+   <button ion-item (tap)="removeCard(card)">Remove</button>
+</ion-list>

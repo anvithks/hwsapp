@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, MenuController, LoadingController} from 'ionic-angular';
 
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
@@ -25,17 +25,28 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public menu: MenuController,
+    public loadingCtrl: LoadingController) {
 
     this.translateService.get('LOGIN_SUCCESS').subscribe((value) => {
       this.loginErrorString = value;
     })
   }
 
+  presentLoadingDefault() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    loading.present();
+  }
   // Attempt to login in through our User service
   doLogin() {
+    this.presentLoadingDefault();
     this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
+      this.navCtrl.push(MainPage);      
     }, (err) => {
       this.navCtrl.push(MainPage);
       // Unable to log in
@@ -46,5 +57,14 @@ export class LoginPage {
       });
       toast.present();
     });
+  }
+  ionViewDidEnter() {
+    //to disable menu, or
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave() {
+    // to enable menu.
+    this.menu.enable(true);
   }
 }

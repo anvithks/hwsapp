@@ -19,6 +19,7 @@ import { MenuProvider } from '../providers/menu/menu';
 
 import { AddCardModalPage } from '../pages/add-card-modal/add-card-modal';
 import { CardsProvider } from '../providers/cards/cards';
+import { PopoverComponent } from '../components/popover/popover';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -44,7 +45,8 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     HWSApp,
-    AddCardModalPage
+    AddCardModalPage,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ export function provideSettings(storage: Storage) {
   bootstrap: [IonicApp],
   entryComponents: [
     HWSApp,
-    AddCardModalPage
+    AddCardModalPage,
+    PopoverComponent
   ],
   providers: [
     Api,

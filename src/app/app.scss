@@ -14,3 +14,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.icons-product-md{
+		width: 46px;
+	    height: 46px;
+	    display: inline-block;
+	    vertical-align: top;
+	    background: url(../assets/img/icons-product-md.png) 0 0 no-repeat;
+	}
+	.icons-product-md .icon-ecs{
+		background-position: -1748px 0;
+	}
+	.icons-product-md .icon-cce{
+		background-position: -230px 0;
+	}
+	.icons-product-md .icon-evs{
+		background-position: -1840px 0;
+	}
+	.icons-product-md .icon-bms{
+		background-position: -184px 0;
+	}
+	.icons-product-md .icon-ims{
+		background-position: -2208px 0;
+	}
+	.icons-product-md .icon-auto{
+		background-position: -138px 0;
+	}
+	.icons-product-md .icon-des{
+		background-position: -1288px 0;
+	}
+	.icons-product-md .icon-vpc{
+		background-position: -3450px 0;
+	}
+	.icons-product-md .icon-elb{
+		background-position: -1794px 0;
+	}
+	.icons-product-md .icon-vpn{
+		background-position: -3496px 0;
+	}

@@ -18,26 +18,52 @@ export class Items {
     let items = [
       {
         "name": "Elastic Cloud Server",
+        "icon": "icon-ecs",
         "about": "4 VMs"
       },
       {
         "name": "Cloud Container Engine",
+        "icon": "icon-cce",
         "about": "2 Clusters"
       },
       {
         "name": "Elastic Volume Service",
+        "icon": "icon-evs",
         "about": "4 Disks"
       },
       {
-        "name": "Data Express Service",
+        "name": "Bare Metal Server",
+        "icon": "icon-bms",
         "about": "No instance found."
       },
       {
-        "name": "Scalable File Service",
+        "name": "Image Management Service",
+        "icon": "icon-ims",
         "about": "No Instance Found"
       },
       {
+        "name": "Auto Scale",
+        "icon": "icon-auto",
+        "about": "2 instances"
+      },
+      {
+        "name": "Data Express Service",
+        "icon": "icon-des",
+        "about": "2 instances"
+      },
+      {
         "name": "VPC",
+        "icon": "icon-vpc",
+        "about": "2 instances"
+      },
+      {
+        "name": "ELB",
+        "icon": "icon-elb",
+        "about": "2 instances"
+      },
+      {
+        "name": "VPN",
+        "icon": "icon-vpn",
         "about": "2 instances"
       }
     ];

@@ -3,17 +3,33 @@
   <ion-navbar>
     <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
   </ion-navbar>
-
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="loginType" color="primary">
+      <ion-segment-button value="Domain">
+        Domain Login
+      </ion-segment-button>
+      <ion-segment-button value="Sub-user">
+        Sub-user Login
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <form>
     <ion-list>
-
-      <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+      <ion-item *ngIf="loginType==='Domain'">
+        <ion-label stacked>{{ 'DOMAIN_LOGIN_NAME' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginType==='Sub-user'">
+        <ion-label stacked>{{ 'DOMAIN_NAME' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="account.domain" name="domainname"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginType==='Sub-user'">
+        <ion-label stacked>{{ 'SUB_USER_LOGIN' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="subusername"></ion-input>
       </ion-item>
 
       <!--
@@ -26,12 +42,27 @@
       -->
 
       <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-label stacked>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
       </ion-item>
 
+      <ion-item>
+         <ion-label>Remember Username</ion-label>
+         <ion-checkbox [(ngModel)]="rememberUsername" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+       </ion-item>
+
+       <ion-item>
+          <ion-label stacked>{{'ANOTHER_ACCOUNT' | translate}}</ion-label>
+          <ion-select [(ngModel)]="anotherAcct" [ngModelOptions]="{standalone: true}" interface="actionsheet" placeholder="Please select account type">
+            <ion-option value="enterprise">Huawei Enterprise Partner</ion-option>
+            <ion-option value="ict-dev">Huawei ICT Developer</ion-option>
+            <ion-option value="dev-alliance">Huawei Developer Alliance</ion-option>
+          </ion-select>
+        </ion-item>
+
       <div padding>
-        
+          <button ion-button small clear>Free Registration</button>
+          <button ion-button small clear>Forgot Password?</button>
       </div>
 
     </ion-list>

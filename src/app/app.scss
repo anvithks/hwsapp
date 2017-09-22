@@ -22,33 +22,43 @@
 	    vertical-align: top;
 	    background: url(../assets/img/icons-product-md.png) 0 0 no-repeat;
 	}
-	.icons-product-md .icon-ecs{
+	.icons-product-md.icon-ecs{
 		background-position: -1748px 0;
 	}
-	.icons-product-md .icon-cce{
+	.icons-product-md.icon-cce{
 		background-position: -230px 0;
 	}
-	.icons-product-md .icon-evs{
+	.icons-product-md.icon-evs{
 		background-position: -1840px 0;
 	}
-	.icons-product-md .icon-bms{
+	.icons-product-md.icon-bms{
 		background-position: -184px 0;
 	}
-	.icons-product-md .icon-ims{
+	.icons-product-md.icon-ims{
 		background-position: -2208px 0;
 	}
-	.icons-product-md .icon-auto{
+	.icons-product-md.icon-auto{
 		background-position: -138px 0;
 	}
-	.icons-product-md .icon-des{
+	.icons-product-md.icon-des{
 		background-position: -1288px 0;
 	}
-	.icons-product-md .icon-vpc{
+	.icons-product-md.icon-vpc{
 		background-position: -3450px 0;
 	}
-	.icons-product-md .icon-elb{
+	.icons-product-md.icon-elb{
 		background-position: -1794px 0;
 	}
-	.icons-product-md .icon-vpn{
+	.icons-product-md.icon-vpn{
 		background-position: -3496px 0;
 	}
+
+.newBG {
+    background:#4C6E6E !important;
+}
+
+img.screenshot-share {
+    border: 5px solid #365454;
+    width:70%;
+    margin-top: 3em
+}

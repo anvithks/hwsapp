@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ currentInstance.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of instances">
+      <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <!-- <ion-icon style="font-size: 3em;" name="item.icon"></ion-icon> -->
+          <span class="icons-product-md {{currentInstance.icon}}"></span>
+        </ion-avatar>
+        <h2>{{item.instanceName}}</h2>
+        <!-- <p *ngIf="item.instances.length > 0">{{item.instances.length}} Instances</p>
+        <p *ngIf="item.instances.length < 1">No Instances found.</p>
+        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note> -->
+      </button>
+
+      <!-- <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options> -->
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

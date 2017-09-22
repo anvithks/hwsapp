@@ -9,6 +9,8 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Screenshot } from '@ionic-native/screenshot';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
@@ -36,7 +38,7 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     option1: true,
-    option2: 'Ionitron J. Framework',
+    option2: 'Test Settings',
     option3: '3',
     option4: 'Hello'
   });
@@ -79,7 +81,9 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     MenuProvider,
-    CardsProvider
+    CardsProvider,
+    Screenshot,
+    SocialSharing
   ]
 })
 export class AppModule { }

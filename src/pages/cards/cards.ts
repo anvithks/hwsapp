@@ -26,6 +26,7 @@ export class CardsPage {
   removeCardSuccess: any;
   showStatusCard: boolean;
   showBillingCard: boolean;
+  removeCard: boolean;
 
   
 
@@ -40,6 +41,7 @@ export class CardsPage {
     this.showCpuCard = true;
     this.showNwCard = true;
     this.showDiskCard = true;
+    this.removeCard = false;
     this.cards.getCards()
     .subscribe(
       (response)=> {
@@ -64,28 +66,32 @@ export class CardsPage {
 
   //Popover Menu
   presentPopover(cardType: any, ev) {
-    let popover = this.popoverCtrl.create(PopoverComponent, {cardType: cardType, cardItem: this.cardItems});
-    popover.onDidDismiss((data) => {
-      if(data==='status'){
-        this.showStatusCard = false;
-      } else if(data==='billing'){
-        this.showBillingCard = false;
-      } else{
-        console.log("where to splice", data);
-          (this.cardItems).splice(data, 1);
-        console.log("After splicing",this.cardItems);
-      }
-
-      
+    let popover = this.popoverCtrl.create(PopoverComponent, {cardType: cardType, removeCard: this.removeCard});
+    popover.onDidDismiss((data, popCard) => {
+      console.log("popover data:", data);
+      if(popCard){
+        switch (data) {
+          case "status":
+            this.showStatusCard = false;
+            break;
+          case "billing":
+            this.showBillingCard = false;
+            break;
+          
+          default:
+          console.log("where to splice", data);
+            (this.cardItems).splice(data, 1);
+          console.log("After splicing",this.cardItems);
+          this.showToast(this.removeCardSuccess);
+            break;
+        }
+      }      
     });
     popover.present({
       ev: ev
     });
   }
-  //Return from Popover
- /* popover.onDidDismiss((popoverData) => {
-      //this.selectedTitle = popoverData;
-   })*/
+ 
   //Draw CPU chart
   drawCpu(){
     this.myCpuChart = HighCharts.chart('cpuContainer', {
@@ -225,41 +231,7 @@ export class CardsPage {
     });
     toast.present();
   }
-  /*removeCard(card: any){
-      switch (card) {
-        case "status":
-          this.showStatusCard = false;
-          break;
-        case "billing":
-          this.showBillingCard = false
-          break;
-        case "cpu":
-          this.showCpuCard = false;
-          break;
-        case "network":
-          this.showNwCard = false;
-          break;
-        case "disk":
-          this.showDiskCard = false;
-          break;
-        
-        
-        default:
-          let toast = this.toastCtrl.create({
-            message: this.removeCardError,
-            duration: 2000,
-            position: 'top'
-          });
-          toast.present();
-          break;
-      }
-      let toast = this.toastCtrl.create({
-        message: this.removeCardSuccess,
-        duration: 2000,
-        position: 'top'
-      });
-      toast.present();
-  }*/
+ 
   /*loadCards(){
     this.storage.get('cardList').then((data) => {
       this.cardItems = JSON.parse(data);

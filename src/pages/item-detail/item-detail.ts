@@ -14,11 +14,11 @@ export class ItemDetailPage {
   myNwChart: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
+    this.item = navParams.get('item');
   }
 
    drawNw(){
-    this.myNwChart = HighCharts.chart('nwContainer', {
+    this.myNwChart = HighCharts.chart('nwItemContainer', {
       chart: {
         type: 'line'
       },

@@ -1,19 +1,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ item.instanceName }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic >
-		<div id="nwContainer"></div>
-  </div> 
+	<ion-list>
+		<ion-item no-padding>
+			<ion-label stacked>{{'NEW_METRIC_SOURCE' | translate}}</ion-label>
+			<ion-select [(ngModel)]="metric" interface="popover">
+				<ion-option *ngFor="let metric of item.instanceMetrics" [value]="metric.type" [selected]="metric.type==='network'" placeholder="Please select monitoring metric">{{metric.name}}</ion-option>
+				<!-- <ion-option value="CPU Utilization">CPU Utilization (%)</ion-option>
+				<ion-option value="Network Utilization" selected="true">Network Utilisation (Bytes/sec)</ion-option>
+				<ion-option value="Disk Traffic">Disk Traffic (Bytes/sec)</ion-option> -->
+			</ion-select>
+		</ion-item>
+	</ion-list>
+	<div id="nwItemContainer" class="item-profile" text-center #profilePic >
+	</div> 
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
-  </div>
+	<div class="item-detail" padding>
+		<h2>{{item.instanceName}}</h2>
+	</div>
+	<ion-list>
+		<ion-item>
+			<ion-icon name="pulse" item-start></ion-icon>
+		  	Instance Status
+			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="speedometer" item-start></ion-icon>
+		  	Instance Details
+			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="albums" item-start></ion-icon>
+		  	Disks and Images
+			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="list" item-start></ion-icon>
+	  		Permissions
+			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
+	</ion-item>
+	</ion-list>
 </ion-content>

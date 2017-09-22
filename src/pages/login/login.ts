@@ -14,11 +14,14 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
+  account: { domain: string, email: string, password: string } = {
+    domain: 'hwclouds',
     email: 'test@example.com',
     password: 'test'
   };
-
+  public loginType: any;
+  public rememberUsername: any;
+  public anotherAcct: any;
   // Our translated text strings
   private loginErrorString: string;
 
@@ -29,6 +32,7 @@ export class LoginPage {
     public menu: MenuController,
     public loadingCtrl: LoadingController) {
 
+    this.loginType = 'Domain';
     this.translateService.get('LOGIN_SUCCESS').subscribe((value) => {
       this.loginErrorString = value;
     })
@@ -52,7 +56,7 @@ export class LoginPage {
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,
-        duration: 2000,
+        duration: 2500,
         position: 'top'
       });
       toast.present();

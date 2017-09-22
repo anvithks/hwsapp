@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
+import { InstanceListPage } from '../../pages/instance-list/instance-list';
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
 
@@ -20,6 +21,7 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
+    console.log("Resources:", this.currentItems);
   }
 
   /**
@@ -46,8 +48,14 @@ export class ListMasterPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
+  /*openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
+      item: item
+    });
+  }*/
+  showInstances(item: any){
+    console.log("Instances of: ", item);
+    this.navCtrl.push('InstanceListPage', {
       item: item
     });
   }

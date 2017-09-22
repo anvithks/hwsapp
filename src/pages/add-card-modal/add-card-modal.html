@@ -21,7 +21,7 @@
 	<ion-list>
 		<ion-item no-padding>
 			<ion-label stacked>{{'NEW_MONITOR_METRIC' | translate}}</ion-label>
-			<ion-select [(ngModel)]="monitoringMetric" interface="popover">
+			<ion-select [(ngModel)]="monitoringMetric" interface="popover" placeholder="Please select a monitoring metric">
 				<ion-option value="Total CCE Instances">CCE, Total Instances</ion-option>
 				<ion-option value="CPU Utilization">CCE, CPU Utilization (%)</ion-option>
 				<ion-option value="Network Utilization">CCE, Network Utilisation (Bytes/sec)</ion-option>
@@ -39,7 +39,7 @@
 		</ion-item>		
 		<ion-item no-padding>
 			<ion-label stacked>{{'NEW_METRIC_SOURCE' | translate}}</ion-label>
-			<ion-select [(ngModel)]="monitoringMetricSource" multiple="true">
+			<ion-select [(ngModel)]="monitoringMetricSource" multiple="true" placeholder="Please select a metric source">
 				<ion-option value="cce-vm-lamp-1">cce-vm-lamp-1</ion-option>
 				<ion-option value="cce-vm-lamp-2">cce-vm-lamp-2</ion-option>
 				<ion-option value="ecs-instance-4">ecs-instance-4</ion-option>

@@ -15,20 +15,6 @@ export class Items {
         "instances": [
           {
             "instanceName":"ECS 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "ecs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -42,7 +28,47 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]
+            ],
+            "instanceTabs":[
+               {
+                 "name" : "Status",
+                 "icon": "pulse",
+                 "showDetails": false,
+                 "details":{
+                   "state":"Running"
+                  }
+               },
+               {
+                 "name": "Info",
+                 "icon" : "speedometer",
+                 "showDetails": false,
+                 "details":{
+                    "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                    "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                    "externalIP" : "104.197.97.213",
+                    "internalIP" : "10.128.0.4"
+                  }
+               },
+               {
+                 "name": "Disks",
+                 "icon" : "albums",
+                 "showDetails": false,
+                 "details":{
+                   "volume": "ecs-storage-vol-2"
+                  }
+               },
+               {
+                 "name": "Permissions",
+                 "icon" : "list",
+                 "showDetails": false,
+                 "details":{
+                    "userInfo" : "Disabled",
+                    "cce" : "read/write",
+                    "evs" : "read only",
+                    "taskQueue": "Disabled"
+                  }
+               }
+            ]           
           }]
          };           
           
@@ -58,20 +84,6 @@ export class Items {
         "instances": [
           {
             "instanceName":"ECS 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "ecs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -85,24 +97,51 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs": [
+            {
+                "name" : "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details" : {
+                  "state": "Running" 
+                }
+             },
+             {
+                "name" : "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details" : {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume" : "ecs-storage-vol-2" 
+                }
+              },
+              {
+                "name": "Permisssions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+
+            ]         
           },
           {
             "instanceName":"ECS 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "m1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "c1-xian", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.215",
-                "internalIP" : "10.128.0.7"
-            },
-            "instanceDisks" : "ecs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -116,24 +155,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs" :[
+              {
+                "name" : "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details" : {
+                  "state": "Running" 
+                }
+              },
+              {
+                "name" : "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details" : {
+                  "machineType": "m1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "c1-xian", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.215",
+                  "internalIP" : "10.128.0.7"
+                }
+              },
+              {
+                "name" : "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details" : {
+                  "volume": "ecs-storage-vol-2" 
+                }
+              },              
+              {
+                "name" : "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details" : {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled" 
+                }
+              }
+            ]
           },
           {
             "instanceName":"ECS 3",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-2xlarge", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "southchina", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.216",
-                "internalIP" : "10.128.0.5"
-            },
-            "instanceDisks" : "ecs-storage-vol-3",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -147,24 +212,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                   "state": "Abnormal"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-2xlarge", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "southchina", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.216",
+                  "internalIP" : "10.128.0.5"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume" : "ecs-storage-vol-3"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]                        
           },
           {
             "instanceName":"ECS 4",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "m1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "eastchina", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.217",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "ecs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -177,6 +268,46 @@ export class Items {
               {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
+              }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state" : ""
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "m1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "eastchina", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.217",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume" : ""
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
               }
             ]            
           }
@@ -190,20 +321,6 @@ export class Items {
         "instances": [
           {
             "instanceName":"CCE 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "cce-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -217,24 +334,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ] 
+            ],            
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"cce-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]
           },
           {
             "instanceName":"CCE 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "cce-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -248,7 +391,47 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ] 
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"cce-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]
           }
         ]
       },
@@ -260,20 +443,6 @@ export class Items {
         "instances": [
           {
             "instanceName":"EVS 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "evs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -287,25 +456,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]
-            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                   "volume": "evs-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                   "userInfo" : "Disabled",
+                   "cce" : "read/write",
+                   "evs" : "read only",
+                   "taskQueue": "Disabled"
+                }
+              }
+            ]            
           },
           {
             "instanceName":"EVS 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "evs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -319,25 +513,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]
-            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"evs-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]            
           },
           {
             "instanceName":"EVS 3",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "evs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -351,25 +570,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]
-            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"evs-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                   "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]            
           },
           {
             "instanceName":"EVS 4",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "evs-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -382,6 +626,46 @@ export class Items {
               {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
+              }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"evs-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
               }
             ]
             
@@ -410,20 +694,6 @@ export class Items {
         "instances":[
           {
             "instanceName":"AS 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "as-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -437,24 +707,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                   "volume":"as-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]           
           },
           {
             "instanceName":"AS 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "as-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -468,7 +764,47 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"as-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]           
           }
         ]
       },
@@ -480,20 +816,6 @@ export class Items {
         "instances":[
           {
             "instanceName":"DES 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "des-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -507,24 +829,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"des-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]          
           },
           {
             "instanceName":"DES 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "des-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -537,6 +885,46 @@ export class Items {
               {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
+              }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"des-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
               }
             ]
             
@@ -551,20 +939,6 @@ export class Items {
         "instances":[
           {
             "instanceName":"VPC 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "vpc-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -577,25 +951,51 @@ export class Items {
               {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
+              }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"vpc-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
               }
             ]            
           },
           {
             "instanceName":"VPC 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "vpc-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -609,7 +1009,47 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"vpc-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]
           }
         ]
       },
@@ -621,20 +1061,6 @@ export class Items {
         "instances":[
           {
             "instanceName":"ELB 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "elb-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -648,24 +1074,50 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"elb-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
             ]            
           },
           {
             "instanceName":"ELB 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "elb-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -678,6 +1130,46 @@ export class Items {
               {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
+              }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"elb-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
               }
             ]            
           }
@@ -691,20 +1183,6 @@ export class Items {
         "instances":[
           {
             "instanceName":"VPN 1",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "vpn-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -717,25 +1195,51 @@ export class Items {
               {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
+              }
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"vpn-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
               }
             ]            
           },
           {
             "instanceName":"VPN 2",
-            "instanceStatus": "Running",
-            "instanceDetails": {
-                "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
-                "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
-                "externalIP" : "104.197.97.213",
-                "internalIP" : "10.128.0.4"
-            },
-            "instanceDisks" : "vpn-storage-vol-2",
-            "instancePerms" : {
-              "userInfo" : "Disabled",
-              "cce" : "read/write",
-              "evs" : "read only",
-              "taskQueue": "Disabled"
-            },
             "instanceMetrics" : [
               {
                 "name" : "CPU Utilization (%)",
@@ -749,7 +1253,47 @@ export class Items {
                 "name" : "Data Traffic (Bytes/sec)",
                 "type" : "data"
               }
-            ]            
+            ],
+            "instanceTabs":[
+              {
+                "name": "Status",
+                "icon": "pulse",
+                "showDetails": false,
+                "details": {
+                  "state": "Running"
+                }
+              },
+              {
+                "name": "Info",
+                "icon" : "speedometer",
+                "showDetails": false,
+                "details": {
+                  "machineType": "c1-medium", //c1-large, c1-2xlarge, m1-medium, l1-large
+                  "zone": "us-central1-a", //c1-xian, southchina, northchina, eastchina 
+                  "externalIP" : "104.197.97.213",
+                  "internalIP" : "10.128.0.4"
+                }
+              },
+              {
+                "name": "Disks",
+                "icon" : "albums",
+                "showDetails": false,
+                "details": {
+                  "volume":"vpn-storage-vol-2"
+                }
+              },
+              {
+                "name": "Permissions",
+                "icon" : "list",
+                "showDetails": false,
+                "details": {
+                  "userInfo" : "Disabled",
+                  "cce" : "read/write",
+                  "evs" : "read only",
+                  "taskQueue": "Disabled"
+                }
+              }
+            ]           
           }
         ]
       }

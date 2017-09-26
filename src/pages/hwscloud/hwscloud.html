@@ -1,14 +1,19 @@
 <ion-header>
 
 	<ion-navbar>
+		<button ion-button menuToggle icon-only start>
+	      <ion-icon name='menu'></ion-icon>
+	    </button>
 		<ion-title>{{ 'MYACCOUNT_TITLE' | translate }}</ion-title>
 		<ion-buttons end>
-			<button ion-button icon-only >
-				<ion-icon name="edit"></ion-icon>
+			<button *ngIf="isReadonly" ion-button icon-only (click)="edit(input)">
+				<ion-icon name="create" color="primary"></ion-icon>
+			</button>
+			<button *ngIf="!isReadonly" ion-button icon-only (click)="save()">
+				<ion-icon name="checkmark" color="primary"></ion-icon>
 			</button>
 		</ion-buttons>
-	</ion-navbar>
-	
+	</ion-navbar>	
 </ion-header>
 
 
@@ -16,20 +21,20 @@
   	<ion-list>
 		<ion-item>
 		    <ion-label fixed>Username</ion-label>
-		    <ion-input type="text" value="johndoe" readonly></ion-input>
+		    <ion-input #input type="text" value="johndoe" readonly disabled></ion-input>
 	  	</ion-item>
 		<ion-item>
 			<ion-label fixed>Full Name</ion-label>
-			<ion-input type="text" value="John Doe" readonly></ion-input>
+			<ion-input type="text" value="John Doe" [readonly]="isReadOnly" [disabled]="isReadonly"></ion-input>
 		</ion-item>
 
 		<ion-item>
 			<ion-label fixed>Email Address</ion-label>
-			<ion-input type="email" value="johndoe@huawei.com" readonly></ion-input>
+			<ion-input type="email" value="johndoe@huawei.com" [readonly]="isReadOnly" [disabled]="isReadonly"></ion-input>
 		</ion-item>
 		<ion-item>
 			<ion-label fixed>Mobile Number</ion-label>
-			<ion-input type="text" value="+1 234-567-8900" readonly></ion-input>
+			<ion-input type="text" value="+1 234-567-8900" [readonly]="isReadOnly" [disabled]="isReadonly"></ion-input>
 		</ion-item>
 	</ion-list>
 </ion-content>

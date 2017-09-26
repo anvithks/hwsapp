@@ -8,11 +8,14 @@
   "PASSWORD": "Password",
   "LOGIN": "Sign in",
   "SIGNUP": "Sign up",
-
-  "TAB1_TITLE": "Services",
-  "TAB2_TITLE": "Resources",
+  "DOMAIN_NAME":"Domain Name",
+  "DOMAIN_LOGIN_NAME":"Domain Name / Email address / Mobile Number",
+  "SUB_USER_LOGIN":"User Name / Email address / Mobile Number",
+  "ANOTHER_ACCOUNT":"Use another account to login:",
+  "TAB1_TITLE": "Home",
+  "TAB2_TITLE": "Services",
   "TAB3_TITLE": "Settings",
-  "TAB4_TITLE": "HWS",
+  "TAB4_TITLE": "My Account",
 
   "MAP_TITLE": "Map",
 
@@ -71,6 +74,7 @@
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
 
   "HWSCLOUD_TITLE": "HWS Cloud",
+  "MYACCOUNT_TITLE" : "My Account",
 
   "MENU_TITLE": "Welcome User",
 

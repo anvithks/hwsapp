@@ -1,3 +1,50 @@
 page-cards {
-
+	.floating-action {
+		.option {
+		    text-align: center;
+		    overflow: visible;
+		}
+		.fab-label {
+		    position: absolute;
+		    height: 24px;
+		    line-height: 16px;
+		    padding-left: 8px;
+		    padding-right: 8px;
+		    padding-top: 5px;
+		    padding-bottom: 5px;
+		    border-radius: 5px;
+		    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
+		}
+		.fab-label-cloud {
+		    margin-left: -110px;
+		    margin-top: -17px;
+		    background: white;
+		}
+		.fab-label-billing{
+			margin-left: -112px;
+	    	top: 13px;
+	    	position:absolute;
+		    background: white;
+	    }
+	    .fab-label-add-card{
+			margin-left: -160px;
+	    	top: 13px;
+	    	position:absolute;
+		    background: white;
+	    }
+	    .change-button-first.fab-close-active{
+	    	position: absolute;
+	    	bottom: 0;
+	    	right: 0;
+	    }
+	    .change-button-new fab-close-active{
+	    	position: absolute;
+	    	bottom: 0;
+	    	right: 0;
+	    }
+	    .change-button-first .activated{
+	    	position:absolute;
+	    	z-index:1;
+	    }
+	} 
 }

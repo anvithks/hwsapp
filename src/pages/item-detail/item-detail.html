@@ -9,7 +9,7 @@
 
 <ion-content>
 	<ion-list>
-		<ion-item no-padding>
+		<ion-item padding-left>
 			<ion-label stacked>{{'NEW_METRIC_SOURCE' | translate}}</ion-label>
 			<ion-select [(ngModel)]="metric" interface="popover">
 				<ion-option *ngFor="let metric of item.instanceMetrics" [value]="metric.type" [selected]="metric.type==='network'" placeholder="Please select monitoring metric">{{metric.name}}</ion-option>
@@ -18,33 +18,53 @@
 				<ion-option value="Disk Traffic">Disk Traffic (Bytes/sec)</ion-option> -->
 			</ion-select>
 		</ion-item>
-	</ion-list>
-	<div id="nwItemContainer" class="item-profile" text-center #profilePic >
-	</div> 
-
-	<div class="item-detail" padding>
-		<h2>{{item.instanceName}}</h2>
-	</div>
+		<ion-item no-padding>
+			<div id="nwItemContainer" class="item-profile" text-center #profilePic >
+			</div>
+		</ion-item>
+		<ion-item padding-left>
+			<ion-grid>
+				<ion-row>
+					<button *ngIf="!isStarted" ion-button color="secondary" small (click)="start()" [disabled]="isTerminated">Start</button>
+					<button *ngIf="isStarted" ion-button small (click)="stop()" [disabled]="isTerminated">Stop</button>
+					<button ion-button color="primary" small (click)="restart()" [disabled]="isTerminated">Restart</button>				
+					<button  ion-button color="danger" small (click)="terminate()" [disabled]="isTerminated">Terminate</button>
+				</ion-row>
+			</ion-grid>	
+		</ion-item>
+	</ion-list>	
 	<ion-list>
-		<ion-item>
-			<ion-icon name="pulse" item-start></ion-icon>
-		  	Instance Status
-			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
+		<ion-list-header>
+			Instance Details
+		</ion-list-header>
+		<ion-item no-padding *ngFor="let d of item.instanceTabs" (click)="toggleDetails(d)">
+			<ion-grid>
+				<ion-row no-padding>
+					<ion-col col-2 align-self-start>
+						<ion-icon [name]="d.icon"></ion-icon>	    					
+					</ion-col>
+					<ion-col col-9 align-self-start>
+						{{d.name}}
+					</ion-col>
+					<ion-col col-1 align-self-start>
+						<ion-icon *ngIf="!d.showDetails" color="primary" name="ios-arrow-down" float-end></ion-icon>
+						<ion-icon *ngIf="d.showDetails" color="primary" name="ios-arrow-up" float-end></ion-icon>
+					</ion-col>
+				</ion-row>
+				<div *ngIf="d.showDetails">
+					<ion-grid>
+						<ion-row *ngFor="let key of JSObject.keys(d.details)" no-padding>
+							<ion-col col-auto>
+								<span text-capitalize>{{key}} :</span>
+							</ion-col>
+							<ion-col>
+								<span>{{d.details[key]}}</span>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</div>
+			</ion-grid>
 		</ion-item>
-		<ion-item>
-			<ion-icon name="speedometer" item-start></ion-icon>
-		  	Instance Details
-			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
-		</ion-item>
-		<ion-item>
-			<ion-icon name="albums" item-start></ion-icon>
-		  	Disks and Images
-			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
-		</ion-item>
-		<ion-item>
-			<ion-icon name="list" item-start></ion-icon>
-	  		Permissions
-			<ion-icon ios="ios-arrow-down" md="ios-arrow-down" item-end></ion-icon>
-	</ion-item>
+		
 	</ion-list>
 </ion-content>

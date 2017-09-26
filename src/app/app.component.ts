@@ -17,32 +17,36 @@ export class HWSApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  pages: any; /*= [
+  pages: any= [
     
-    { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' },
-    { title: 'HWS Cloud', component: 'HWSPage' }
-    /*{ title: 'Tutorial', component: 'TutorialPage' },*/
-    /*{ title: 'Cards', component: 'CardsPage' },*/
-    /*{ title: 'Content', component: 'ContentPage' },*/
-    /*{ title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },*/
-    /*{ title: 'Map', component: 'MapPage' },*/
-    /*{ title: 'Master Detail', component: 'ListMasterPage' },*/
-    /*{ title: 'Menu', component: 'MenuPage' },    
-  ]; */
+    { title: 'Login / Signup', component: 'WelcomePage', icon: "person"},
+    { title: 'Home', component: 'TabsPage', icon: "home"},
+    { title: 'Services', component: 'ListMasterPage', icon: "list-box"},    
+    { title: 'Incidents', component: 'ContentPage', icon: "alert"},
+    { title: 'Logs', component: 'ContentPage', icon: "clipboard"},
+    { title: 'Error Reporting', component: 'ContentPage', icon: "warning"},
+    { title: 'Trace', component: 'ContentPage', icon: "disc"},
+    { title: 'Permissions', component: 'ContentPage', icon: "people"}
+  ];
+  billingPages: any = [
+    { title: 'Billing', component: 'ContentPage', icon: "cash"}
+  ];
+  accountPages: any = [
+    { title: 'Settings', component: 'SettingsPage', icon: "options"},
+    { title: 'Account', component: 'HWSPage', icon: "person"},
+    { title: 'Help & Support', component: 'ContentPage', icon: "bug"}
+  ];
+
   showLevel1 = null;
   showLevel2 = null;
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, public menu: MenuProvider, public cards: CardsProvider) {
     this.initTranslate();
-    this.menu.getMenus()
+    /*this.menu.getMenus()
     .subscribe((response)=> {
         this.pages = response;
         console.log(this.pages);
-    });
+    });*/
     /*for(let key in this.pages){
       let value = this.pages[key];
       
@@ -78,29 +82,21 @@ export class HWSApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  toggleLevel1(idx) {
-    if (this.isLevel1Shown(idx)) {
-      this.showLevel1 = null;
-    } else {
-      this.showLevel1 = idx;
+  isActive(page: any) {
+    let childNav = this.nav.getActiveChildNavs()[0];
+
+    // Tabs are a special case because they have their own navigation
+    if (childNav) {
+      if (childNav.getSelected() && childNav.getSelected().root === page.component) {
+        return 'primary';
+      }
+      return;
     }
   };
 
-  toggleLevel2(idx) {
-    if (this.isLevel2Shown(idx)) {
-      this.showLevel1 = null;
-      this.showLevel2 = null;
-    } else {
-      this.showLevel1 = idx;
-      this.showLevel2 = idx;
+    if (this.nav.getActive() && this.nav.getActive().name === page.name) {
+      return 'primary';
     }
-  };
-
-  isLevel1Shown(idx) {
-    return this.showLevel1 === idx;
-  };
-
-  isLevel2Shown(idx) {
-    return this.showLevel2 === idx;
-  };
+    return;
+  }
 }

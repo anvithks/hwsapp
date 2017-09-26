@@ -6,36 +6,27 @@
   </ion-header>
 
   <ion-content>
+    <ion-list>          
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon" color="primary"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
     <ion-list>
-      <ion-item *ngFor="let p of pages; let i=index" text-wrap (click)="p.subs.length > 0 ? toggleLevel1('idx'+i) : openPage(p)" [menuClose]="p.subs.length > 0" [ngClass]="{active: isLevel1Shown('idx'+i)}">
-        <h4>
-          {{p.category}}
-          <ion-icon *ngIf="p.subs.length > 0" color="success" item-right  [name]="isLevel1Shown('idx'+i) ? 'arrow-dropdown-circle' : 'arrow-dropright-circle'"></ion-icon>
-        </h4>
-        <ion-list *ngIf="isLevel1Shown('idx'+i) && p.subs.length > 0">
-          <ion-item *ngFor="let s of p.subs; let i2=index" text-wrap (click)="toggleLevel2('idx'+i+'idx'+i2)" [ngClass]="{active: isLevel2Shown('idx'+i+'idx'+i2)}">
-            <h4>
-              {{s.subcategory}}
-              <ion-icon *ngIf="s.services.length > 0" color="success" item-right  [name]="isLevel2Shown('idx'+i+'idx'+i2) ? 'arrow-dropdown-circle' : 'arrow-dropright-circle'"></ion-icon>
-            </h4>
-            <ion-list *ngIf="isLevel2Shown('idx'+i+'idx'+i2)">
-              <!-- <ion-item *ngFor="let m of s.manufactures" text-wrap>
-                {{m.manufacture}}
-              </ion-item> -->
-               <button menuClose ion-item *ngFor="let m of s.services" text-wrap (click)="openPage(m)">
-		          {{m.title}}
-		        </button>
-            </ion-list>
-          </ion-item>
-        </ion-list>
-      </ion-item>
-      
+      <button menuClose ion-item *ngFor="let p of billingPages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon" color="primary"></ion-icon>
+        {{p.title}}
+      </button>   
+    </ion-list>
+     <ion-list>
+      <button menuClose ion-item *ngFor="let p of accountPages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon" color="primary"></ion-icon>
+        {{p.title}}
+      </button>   
     </ion-list>
   </ion-content>
 
 </ion-menu>
-
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>
 
 

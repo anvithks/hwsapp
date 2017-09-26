@@ -83,12 +83,16 @@
     <ion-card-content>
       <p>{{item.content}}</p>
     </ion-card-content>
-  </ion-card>
-  <ion-fab right bottom *ngIf="!showStatusCard || !showBillingCard">
-    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list side="top" color="danger">
-      <button ion-fab *ngIf="!showStatusCard"><ion-icon name="cloud"></ion-icon></button>
-      <button ion-fab *ngIf="!showBillingCard"><ion-icon name="logo-yen"></ion-icon></button>
+  </ion-card>  
+  <ion-fab right bottom class="floating-action" *ngIf="!showStatusCard || !showBillingCard">
+    <button class="change-button-first" ion-fab color="light" (click)="clickMainFAB()" ><ion-icon name="add"></ion-icon></button>
+    <div class="fab-label fab-label-add-card" *ngIf="btnVisible">Add a Monitoring card</div>
+    <button *ngIf="btnVisible" ion-fab color="light" (click)="newCardModal()" class="change-button-new"><ion-icon name="create"></ion-icon></button>
+    <ion-fab-list side="top" color="danger" >
+      <div class="fab-label fab-label-cloud" *ngIf="!showStatusCard">Add a Cloud status card</div>
+      <button ion-fab class="option" [hidden]="showStatusCard" (click)="addStatusCard()"><ion-icon name="cloud"></ion-icon></button>
+      <div class="fab-label fab-label-billing" *ngIf="!showBillingCard">Add a project billing card</div>
+      <button ion-fab [hidden]="showBillingCard" (click)="addBillingCard()"><ion-icon name="logo-yen"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
   <ion-fab right bottom *ngIf="showStatusCard && showBillingCard">

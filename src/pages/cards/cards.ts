@@ -27,6 +27,7 @@ export class CardsPage {
   showStatusCard: boolean;
   showBillingCard: boolean;
   removeCard: boolean;
+  btnVisible:boolean;
 
   
 
@@ -62,6 +63,7 @@ export class CardsPage {
     })
     
     this.doRefresh(0);
+    this.btnVisible = false;
   }
 
   //Popover Menu
@@ -72,7 +74,7 @@ export class CardsPage {
       if(popCard){
         switch (data) {
           case "status":
-            this.showStatusCard = false;
+            this.showStatusCard = false;         
             break;
           case "billing":
             this.showBillingCard = false;
@@ -227,7 +229,8 @@ export class CardsPage {
     let toast = this.toastCtrl.create({
       message: message,
       duration: 3000,
-      position: 'top'
+      position: 'top',
+      showCloseButton: true
     });
     toast.present();
   }
@@ -258,4 +261,16 @@ export class CardsPage {
   ionViewWillEnter(){
     
   }
+  clickMainFAB() {
+    this.btnVisible = true;
+  }
+  addBillingCard(){
+    this.showBillingCard = true;
+    this.showToast("Billing card added successfully.");
+  }
+  addStatusCard(){
+    this.showStatusCard = true;
+    this.showToast("Status card added successfully.");
+  }
+
 }
